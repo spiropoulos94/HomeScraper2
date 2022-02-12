@@ -146,6 +146,9 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 		// listings = append(listings, listing)
 	}
 
+	fmt.Println("LISTINGS FOUND :")
+	fmt.Println(len(listings))
+
 	// check if directoy files exists, if not, make it
 	makeDirIfNotExists("files", 0777)
 
