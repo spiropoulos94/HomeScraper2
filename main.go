@@ -32,6 +32,9 @@ type listingInfo struct {
 }
 
 func main() {
+	PORT := goDotEnvVariable("$PORT")
+
+	fmt.Println(PORT)
 	for {
 		callback()
 		time.Sleep(5 * time.Minute)
@@ -47,9 +50,6 @@ func login(page *rod.Page, username, password string) {
 
 	fbUsername := goDotEnvVariable("USERNAME")
 	fbPassword := goDotEnvVariable("PASSWORD")
-	PORT := goDotEnvVariable("$PORT")
-
-	fmt.Println(PORT)
 
 	wait := page.WaitEvent(&proto.PageLoadEventFired{})
 	page.MustWaitLoad().MustElement("[data-testid='royal_email']").MustInput(fbUsername)
