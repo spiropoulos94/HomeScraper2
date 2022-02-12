@@ -287,7 +287,7 @@ func callback() {
 
 	for _, item := range urlMap {
 
-		go func(item endPoint, c chan string) {
+		func(item endPoint, c chan string) {
 			viewport := proto.EmulationSetDeviceMetricsOverride{
 				Height: 1000,
 			}
