@@ -47,6 +47,10 @@ func login(page *rod.Page, username, password string) {
 
 	fbUsername := goDotEnvVariable("USERNAME")
 	fbPassword := goDotEnvVariable("PASSWORD")
+	PORT := goDotEnvVariable("PORT")
+
+	fmt.Println(PORT)
+
 	wait := page.WaitEvent(&proto.PageLoadEventFired{})
 	page.MustWaitLoad().MustElement("[data-testid='royal_email']").MustInput(fbUsername)
 	page.MustWaitLoad().MustElement("[data-testid='royal_pass']").MustInput(fbPassword)
