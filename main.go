@@ -13,6 +13,7 @@ import (
 	"time"
 
 	"github.com/go-rod/rod"
+	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
 	"github.com/joho/godotenv"
 )
@@ -270,7 +271,12 @@ func callback() {
 				Height: 1000,
 			}
 
-			browser := rod.New().MustConnect()
+			u := launcher.New().
+				Set("--headless").
+				Set("no-sandbox").
+				MustLaunch()
+
+			browser := rod.New().ControlURL(u).MustConnect()
 			page := browser.MustPage(item.link)
 
 			page.SetViewport(&viewport)
