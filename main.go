@@ -15,6 +15,7 @@ import (
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
+	"github.com/joho/godotenv"
 )
 
 type endPoint struct {
@@ -32,10 +33,22 @@ type listingInfo struct {
 }
 
 func main() {
-	port := goDotEnvVariable("PORT")
 
-	fmt.Println("HEROKU BRANCH")
+	// load .env file
+	err := godotenv.Load(".env")
+
+	if err != nil {
+		fmt.Println("Error loading .env file")
+	}
+
+	port := goDotEnvVariable("PORT")
+	environment := goDotEnvVariable("ENVIRONMENT")
+
+	fmt.Println("HEROKU BRANCH, PORT:")
 	fmt.Println(port)
+	fmt.Println("ENVIRONMENT")
+	fmt.Println(environment)
+
 	for {
 		callback()
 		time.Sleep(5 * time.Minute)
@@ -147,13 +160,6 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 }
 
 func goDotEnvVariable(key string) string {
-
-	// load .env file
-	// err := godotenv.Load(".env")
-
-	// if err != nil {
-	// 	fmt.Println("Error loading .env file")
-	// }
 
 	value := os.Getenv(key)
 
