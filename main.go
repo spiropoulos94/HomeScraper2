@@ -35,6 +35,7 @@ type listingInfo struct {
 func main() {
 	PORT := goDotEnvVariable("$PORT")
 
+	fmt.Println("HEROKU BRANCH")
 	fmt.Println(PORT)
 	for {
 		callback()
