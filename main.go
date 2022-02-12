@@ -33,13 +33,16 @@ type listingInfo struct {
 
 func main() {
 	port := goDotEnvVariable("$PORT")
+	port2 := goDotEnvVariable("PORT")
 
-	fmt.Println("HEROKU BRANCH")
+	fmt.Println("$port")
 	fmt.Println(port)
-	for {
-		callback()
-		time.Sleep(5 * time.Minute)
-	}
+	fmt.Println("port")
+	fmt.Println(port2)
+	// for {
+	// 	callback()
+	// 	time.Sleep(5 * time.Minute)
+	// }
 }
 
 func acceptCookies(page *rod.Page) {
