@@ -338,6 +338,9 @@ func callback() {
 
 			c <- "Fetch for " + item.name + " ok!"
 
+			port = goDotEnvVariable("PORT")
+			fmt.Println(port)
+
 			browser.Close()
 		}(item, c)
 
