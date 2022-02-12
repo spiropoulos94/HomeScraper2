@@ -352,7 +352,7 @@ func sendMail(mailContent string) {
 	sign := "(D)"
 	env := goDotEnvVariable("ENVIRONMENT")
 
-	if env != "LIVE" {
+	if env == "LIVE" {
 		sign = "(L)"
 	}
 
