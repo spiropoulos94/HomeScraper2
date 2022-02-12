@@ -47,7 +47,7 @@ func login(page *rod.Page, username, password string) {
 
 	fbUsername := goDotEnvVariable("USERNAME")
 	fbPassword := goDotEnvVariable("PASSWORD")
-	PORT := goDotEnvVariable("PORT")
+	PORT := goDotEnvVariable("$PORT")
 
 	fmt.Println(PORT)
 
