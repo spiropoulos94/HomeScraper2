@@ -181,6 +181,10 @@ func checkListingsAndSendMails(currentListings map[int]listingInfo) {
 
 	newEntriesExist := false
 
+	fmt.Println("CURRENT LISTINGS")
+	fmt.Println(currentListings)
+	fmt.Println("-----------------")
+
 	for key, listing := range currentListings {
 
 		listingObj, _ := currentListings[key]
