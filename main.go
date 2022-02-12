@@ -140,7 +140,9 @@ func goDotEnvVariable(key string) string {
 	// 	fmt.Println("Error loading .env file")
 	// }
 
-	return os.Getenv(key)
+	value := os.Getenv(key)
+
+	return value
 }
 
 func makeDirIfNotExists(dirname string, permissions int) {
