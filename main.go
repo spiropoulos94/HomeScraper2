@@ -97,6 +97,8 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 
 	fmt.Println("----------------elements----------------")
 	fmt.Println(elements)
+	fmt.Println("----------------selector----------------")
+	fmt.Println(selector)
 
 	// listings := []listingInfo{}
 
