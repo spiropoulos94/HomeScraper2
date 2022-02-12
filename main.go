@@ -298,6 +298,8 @@ func callback() {
 			}
 
 			fmt.Println("running for ", item)
+			port := goDotEnvVariable("PORT")
+			fmt.Println(port)
 
 			window := proto.BrowserBounds{
 				Left:   0,
