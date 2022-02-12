@@ -15,7 +15,6 @@ import (
 	"github.com/go-rod/rod"
 	"github.com/go-rod/rod/lib/launcher"
 	"github.com/go-rod/rod/lib/proto"
-	"github.com/joho/godotenv"
 )
 
 type endPoint struct {
@@ -135,11 +134,11 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 func goDotEnvVariable(key string) string {
 
 	// load .env file
-	err := godotenv.Load(".env")
+	// err := godotenv.Load(".env")
 
-	if err != nil {
-		fmt.Println("Error loading .env file")
-	}
+	// if err != nil {
+	// 	fmt.Println("Error loading .env file")
+	// }
 
 	return os.Getenv(key)
 }
