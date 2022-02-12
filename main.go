@@ -93,11 +93,16 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 	page.MustWaitLoad()
 	page.WaitEvent(&proto.PageLoadEventFired{})
 
-	elements, err := page.Elements(selector)
+	elements := page.MustElements(selector)
 
-	if err != nil {
-		fmt.Println("ERROR while page.Elements", err)
+	for len(elements) == 0 {
+		fmt.Println("No elements, running again")
+		elements = page.MustElements(selector)
 	}
+
+	// if err != nil {
+	// 	fmt.Println("ERROR while page.Elements", err)
+	// }
 
 	fmt.Println("----------------elements----------------")
 	fmt.Println(elements)
