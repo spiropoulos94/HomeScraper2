@@ -35,10 +35,15 @@ type listingInfo struct {
 func main() {
 
 	// load .env file
-	err := godotenv.Load(".env")
+	envFileExists := fileExists(".env")
 
-	if err != nil {
-		fmt.Println("Error loading .env file")
+	if envFileExists {
+
+		err := godotenv.Load(".env")
+
+		if err != nil {
+			fmt.Println("Error loading .env file")
+		}
 	}
 
 	port := goDotEnvVariable("PORT")
@@ -385,4 +390,18 @@ func sendMail(mailContent string) {
 	}
 
 	fmt.Println("MAIL SENT SUCCESSFULLY")
+}
+
+func fileExists(filename string) bool {
+	if _, err := os.Stat(filename); err == nil {
+		fmt.Println("----------------------")
+		fmt.Printf(filename + "  exists\n")
+		fmt.Println("----------------------")
+		return true
+	} else {
+		fmt.Println("----------------------")
+		fmt.Printf(filename + "  does not exist\n")
+		fmt.Println("----------------------")
+		return false
+	}
 }
