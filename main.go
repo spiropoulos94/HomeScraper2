@@ -277,8 +277,8 @@ func callback() {
 			}
 
 			u := launcher.New().
-				Set("--headless").
-				Set("no-sandbox").
+				Headless(true).
+				NoSandbox(true).
 				MustLaunch()
 
 			browser := rod.New().ControlURL(u).MustConnect()
