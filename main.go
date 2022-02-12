@@ -95,9 +95,10 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 
 	elements := page.MustElements(selector)
 
-	for len(elements) == 0 {
-		fmt.Println("No elements, running again")
-		elements = page.MustElements(selector)
+	if len(elements) == 0 {
+		divs := page.MustElements("div")
+		fmt.Println("divs")
+		fmt.Println(divs)
 	}
 
 	// if err != nil {
