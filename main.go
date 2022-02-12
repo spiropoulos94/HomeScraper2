@@ -284,7 +284,7 @@ func callback() {
 			}
 
 			u := launcher.New().
-				Headless(true).
+				// Headless(true).
 				NoSandbox(true).
 				MustLaunch()
 
