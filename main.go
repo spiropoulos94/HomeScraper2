@@ -125,6 +125,9 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 	// check if fil alreadySent.json exists inside files folder, if not, make it
 	makeFileIfNotExists("alreadySent.json", 0777)
 
+	fmt.Println("current listings befere beeing passed in checkListingsFn()")
+	fmt.Println(listings)
+
 	checkListingsAndSendMails(listings)
 
 }
