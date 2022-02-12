@@ -118,10 +118,10 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 	// 	fmt.Println("ERROR while page.Elements", err)
 	// }
 
-	fmt.Println("----------------elements----------------")
-	fmt.Println(elements)
-	fmt.Println("----------------selector----------------")
-	fmt.Println(selector)
+	// fmt.Println("----------------elements----------------")
+	// fmt.Println(elements)
+	// fmt.Println("----------------selector----------------")
+	// fmt.Println(selector)
 
 	// listings := []listingInfo{}
 
@@ -154,9 +154,6 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 
 	// check if fil alreadySent.json exists inside files folder, if not, make it
 	makeFileIfNotExists("alreadySent.json", 0777)
-
-	fmt.Println("current listings befere beeing passed in checkListingsFn()")
-	fmt.Println(listings)
 
 	checkListingsAndSendMails(listings)
 
@@ -210,7 +207,7 @@ func checkListingsAndSendMails(currentListings map[int]listingInfo) {
 	newEntriesExist := false
 
 	fmt.Println("CURRENT LISTINGS")
-	fmt.Println(currentListings)
+	fmt.Println(len(currentListings))
 	fmt.Println("-----------------")
 
 	for key, listing := range currentListings {
