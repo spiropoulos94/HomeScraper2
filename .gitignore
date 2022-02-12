@@ -1,0 +1,6 @@
+tmp/
+.env
+.DS_Store
+files/
+
+test.json
