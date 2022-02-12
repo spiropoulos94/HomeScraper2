@@ -33,7 +33,7 @@ type listingInfo struct {
 }
 
 func main() {
-	PORT := goDotEnvVariable("$PORT")
+	PORT := goDotEnvVariable("PORT")
 
 	fmt.Println("HEROKU BRANCH")
 	fmt.Println(PORT)
