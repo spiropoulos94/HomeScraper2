@@ -95,6 +95,9 @@ func scanMarketPlaceListings(page *rod.Page, browser *rod.Browser, selector stri
 
 	elements := page.MustElements(selector)
 
+	fmt.Println("----------------elements----------------")
+	fmt.Println(elements)
+
 	// listings := []listingInfo{}
 
 	listings := make(map[int]listingInfo)
