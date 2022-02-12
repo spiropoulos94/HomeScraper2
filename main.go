@@ -348,7 +348,15 @@ func callback() {
 func sendMail(mailContent string) {
 	// Configuration
 	currentTime := time.Now()
-	emailHead := "(H)New Listings for : " + currentTime.Format("2006-01-02 15:04:05")
+
+	sign := "(D)"
+	env := goDotEnvVariable("ENVIRONMENT")
+
+	if env != "LIVE" {
+		sign = "(L)"
+	}
+
+	emailHead := sign + "New Listings for : " + currentTime.Format("2006-01-02 15:04:05")
 
 	defaultMessage := goDotEnvVariable("DEFAULT_MSG")
 
