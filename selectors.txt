@@ -1,1 +1,3 @@
 sonix8o1 gia links
+
+heroku ps:scale web=1 
