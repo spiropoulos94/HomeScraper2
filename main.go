@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/http"
 	"net/smtp"
 	"os"
 	"strconv"
@@ -53,6 +54,10 @@ func main() {
 	fmt.Println(port)
 	fmt.Println("ENVIRONMENT")
 	fmt.Println(environment)
+
+	go func() {
+		log.Fatal(http.ListenAndServe(":"+port, nil))
+	}()
 
 	for {
 		callback()
