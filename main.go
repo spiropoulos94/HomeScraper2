@@ -55,8 +55,10 @@ func main() {
 	fmt.Println("ENVIRONMENT")
 	fmt.Println(environment)
 
+	mux := http.NewServeMux()
+
 	go func() {
-		log.Fatal(http.ListenAndServe(":"+port, nil))
+		log.Fatal(http.ListenAndServe(":"+port, mux))
 	}()
 
 	for {
