@@ -300,7 +300,7 @@ func callback() {
 
 	for _, item := range urlMap {
 
-		// go func(item endPoint, c chan string) {
+		go func(item endPoint, c chan string) {
 		func(item endPoint, c chan string) {
 			viewport := proto.EmulationSetDeviceMetricsOverride{
 				Height: 1000,
@@ -345,10 +345,7 @@ func callback() {
 			page.MustScreenshot("./tmp/" + item.name + "/" + item.subdir + ".png")
 			fmt.Println("took a screnshot")
 
-			// c <- "Fetch for " + item.name + " ok!"
-
-			port = goDotEnvVariable("PORT")
-			fmt.Println(port)
+			c <- "Fetch for " + item.name + " ok!"
 
 			browser.Close()
 		}(item, c)
