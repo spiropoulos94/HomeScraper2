@@ -64,7 +64,7 @@ func main() {
 	for {
 		callback()
 		fmt.Println("Check round done, sleeping for 5 minutes")
-		// time.Sleep(5 * time.Minute)
+		time.Sleep(5 * time.Minute)
 	}
 }
 
@@ -252,7 +252,6 @@ func checkListingsAndSendMails(currentListings map[int]listingInfo) {
 		sendMail(emailBody)
 	} else {
 		fmt.Println("No new Listings")
-		sendMail("NO NEW LISTINGS")
 	}
 
 	data, _ := json.Marshal(alreadySentListings)
