@@ -252,6 +252,7 @@ func checkListingsAndSendMails(currentListings map[int]listingInfo) {
 		sendMail(emailBody)
 	} else {
 		fmt.Println("No new Listings")
+		sendMail("NO NEW LISTINGS")
 	}
 
 	data, _ := json.Marshal(alreadySentListings)
