@@ -63,7 +63,8 @@ func main() {
 
 	for {
 		callback()
-		time.Sleep(5 * time.Minute)
+		fmt.Println("Check round done, sleeping for 5 minutes")
+		// time.Sleep(5 * time.Minute)
 	}
 }
 
